@@ -19,6 +19,7 @@ function App() {
               }
           );
           setMovies(result.data)
+          console.log(result.data)
       };
 
       fetchData();
