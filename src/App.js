@@ -6,7 +6,12 @@ import MovieDetail from './components/movie-details';
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [movie, setMovie ] = useState(null)
+  const [movie, setMovie ] = useState(null);
+
+  const movieDeleted = selMovie => {
+    setMovies(movies.filter(mov => mov.id !== selMovie.id))
+    setMovie(null)
+  }
 
   useEffect(() => {
       const fetchData = async () => {
@@ -28,7 +33,7 @@ function App() {
     <div className="App">
       <h1>Movie Writer</h1>
       <div className="layout">
-        <MovieList movies={movies} setMovie={setMovie} />
+        <MovieList movies={movies} setMovie={setMovie} movieDeleted={movieDeleted}/>
         <MovieDetail movie={movie} updateMovie={setMovie} />
       </div>
     </div>

@@ -7,7 +7,7 @@ const MovieDetail = ({ movie, updateMovie }) => {
 
     const postData = stars => {
         axios.post(
-            `http://127.0.0.1:8000/api/movies/${movie.id}/rate_movie/`, { stars: stars + 1 }, {
+            `${process.env.REACT_APP_API_URL}/api/movies/${movie.id}/rate_movie/`, { stars: stars + 1 }, {
                 headers: {
                     'Authorization' : 'Token 0fdaf556051d96034b31760a66ad61c9de1c9410',
                     'Content-Type': 'application/json'
