@@ -19,18 +19,17 @@ function App() {
               }
           );
           setMovies(result.data)
-          console.log(result.data)
       };
 
       fetchData();
-  }, [])
+  }, [setMovie])
 
   return (
     <div className="App">
       <h1>Movie Writer</h1>
       <div className="layout">
         <MovieList movies={movies} setMovie={setMovie} />
-        <MovieDetail movie={movie} />
+        <MovieDetail movie={movie} updateMovie={setMovie} />
       </div>
     </div>
   );
