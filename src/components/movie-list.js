@@ -27,7 +27,10 @@ const MovieList = ({ movies, setMovie, movieDeleted, editClicked }) => {
                         key={movie.id}
                     >
                         <h2
-                            onClick={() => setMovie(movie)}
+                            onClick={() => {
+                                setMovie(movie)
+                                editClicked(null)
+                            }}
                         >
                             {movie.title}
                         </h2>

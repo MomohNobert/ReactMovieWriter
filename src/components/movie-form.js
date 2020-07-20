@@ -1,7 +1,7 @@
 import React from 'react';
 
-const MovieForm = () => {
-
+const MovieForm = ({ movie }) => {
+    console.log(movie)
     return (
         <h1>Form</h1>
     )

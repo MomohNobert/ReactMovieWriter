@@ -8,6 +8,7 @@ import MovieForm from './components/movie-form';
 function App() {
   const [movies, setMovies] = useState([]);
   const [movie, setMovie ] = useState(null);
+  const [edit, editMovie] = useState(null);
 
   const movieDeleted = selMovie => {
     setMovies(movies.filter(mov => mov.id !== selMovie.id))
@@ -15,7 +16,7 @@ function App() {
   }
 
   const editClicked = selMovie => {
-
+    editMovie(selMovie)
   }
 
   useEffect(() => {
@@ -39,7 +40,17 @@ function App() {
       <h1>Movie Writer</h1>
       <div className="layout">
         <MovieList movies={movies} setMovie={setMovie} movieDeleted={movieDeleted} editClicked={editClicked} />
-        <MovieDetail movie={movie} updateMovie={setMovie} />
+        <div>
+          {
+            edit ? (
+              <MovieForm movie={edit} />
+            ) 
+            : (
+              <MovieDetail movie={movie} updateMovie={setMovie} />
+            )
+          }
+          
+        </div>
       </div>
     </div>
   );
