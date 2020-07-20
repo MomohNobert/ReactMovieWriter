@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import MovieList from './components/movie-list';
 import MovieDetail from './components/movie-details';
+import MovieForm from './components/movie-form';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -11,6 +12,10 @@ function App() {
   const movieDeleted = selMovie => {
     setMovies(movies.filter(mov => mov.id !== selMovie.id))
     setMovie(null)
+  }
+
+  const editClicked = selMovie => {
+
   }
 
   useEffect(() => {
@@ -33,7 +38,7 @@ function App() {
     <div className="App">
       <h1>Movie Writer</h1>
       <div className="layout">
-        <MovieList movies={movies} setMovie={setMovie} movieDeleted={movieDeleted}/>
+        <MovieList movies={movies} setMovie={setMovie} movieDeleted={movieDeleted} editClicked={editClicked} />
         <MovieDetail movie={movie} updateMovie={setMovie} />
       </div>
     </div>

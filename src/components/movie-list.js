@@ -2,7 +2,7 @@ import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import axios from 'axios';
 
-const MovieList = ({ movies, setMovie, movieDeleted }) => {
+const MovieList = ({ movies, setMovie, movieDeleted, editClicked }) => {
     const removeClicked = movie => {
         axios.delete(
             `${process.env.REACT_APP_API_URL}/api/movies/${movie.id}/`,  {
@@ -31,8 +31,8 @@ const MovieList = ({ movies, setMovie, movieDeleted }) => {
                         >
                             {movie.title}
                         </h2>
-                        <FontAwesome name="edit" style={{padding: '15px', height: '15px', width: '15px'}}/>
-                        <FontAwesome name="trash" style={{padding: '15px', height: '15px', width: '15px'}} onClick={() => removeClicked(movie)}/>
+                        <FontAwesome name="edit" style={{padding: '15px', height: '15px', width: '15px'}} onClick={() => editClicked(movie)} />
+                        <FontAwesome name="trash" style={{padding: '15px', height: '15px', width: '15px'}} onClick={() => removeClicked(movie)} />
                     </div>
                 )
             })
