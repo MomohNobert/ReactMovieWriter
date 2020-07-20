@@ -18,6 +18,10 @@ const MovieList = ({ movies, setMovie, movieDeleted, editClicked }) => {
         });
     }
 
+    const newMovie = () => {
+        
+    }
+
     return (
         <div>
         {
@@ -40,6 +44,7 @@ const MovieList = ({ movies, setMovie, movieDeleted, editClicked }) => {
                 )
             })
         }
+        <button onClick={newMovie} >Add New</button>
         </div>
     )
 };
